@@ -12,12 +12,7 @@ class PublicController extends Controller
     {
         return view('public.home');
     }
-    public function Login(){
-        return view('public.login');
-    }
-    public function register(){
-        return view('public.register');
-    }
+ 
 
 
 }
