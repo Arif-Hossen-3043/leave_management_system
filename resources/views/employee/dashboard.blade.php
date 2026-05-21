@@ -31,14 +31,15 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="{{ route('employee.dashboard') }}" :class="{ 'bg-gray-200': activeSection === 'dashboard' }"
+                        <a href="{{ route('employee.dashboard') }}"
+                            :class="{ 'bg-gray-200': activeSection === 'dashboard' }"
                             class="block px-4 py-2 text-gray-700 hover:bg-gray-200">
                             Dashboard
                         </a>
                     </li>
                 </ul>
             </nav>
-      
+
         </aside>
 
         <!-- Main Content -->
@@ -58,7 +59,16 @@
             <!-- Dashboard Section -->
             <div x-show="activeSection === 'dashboard'" class="space-y-6">
                 <header>
-                    <h1 class="text-2xl font-bold text-gray-800">Welcome Back, John Doe!</h1>
+
+                    @if(Auth::check())
+                        <h1 class="text-2xl font-bold text-gray-800">
+                            Welcome Back, {{ Auth::user()->name }}!
+                        </h1>
+                    @else
+                        <h1>No Login User Detected</h1>
+                    @endif
+
+                    {{-- <h1 class="text-2xl font-bold text-gray-800">Welcome Back, {{ Auth::user->name }}!</h1> --}}
                     <p class="text-gray-600">Here's what's happening with your account today.</p>
                 </header>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -70,30 +80,24 @@
                         <h2 class="text-lg font-semibold text-gray-700">Pending Leave</h2>
                         <p class="text-2xl font-bold text-yellow-600">3</p>
                     </div>
-                    
+
                 </div>
             </div>
 
-                    <div class="mt-8">
-    <a href="{{ route('employee.request') }}"
-        class="inline-flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-xl shadow-md hover:bg-indigo-700 hover:shadow-lg transition duration-300 font-semibold">
+            <div class="mt-8">
+                <a href="{{ route('employee.request') }}"
+                    class="inline-flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-xl shadow-md hover:bg-indigo-700 hover:shadow-lg transition duration-300 font-semibold">
 
-        <svg xmlns="http://www.w3.org/2000/svg" 
-            class="h-5 w-5" 
-            fill="none" 
-            viewBox="0 0 24 24"
-            stroke="currentColor">
-            <path stroke-linecap="round" 
-                stroke-linejoin="round" 
-                stroke-width="2" 
-                d="M12 4v16m8-8H4" />
-        </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
 
-        Request Leave
-    </a>
-</div>
+                    Request Leave
+                </a>
+            </div>
 
-          
+
 
 
 
