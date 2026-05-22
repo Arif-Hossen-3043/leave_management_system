@@ -25,10 +25,11 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/employee/request', [EmployeeController::class, 'store'])->name('employee.store');
 
-    Route::post('/logout', function () {
+    
+});
+Route::post('/logout', function () {
         Auth::logout();
         request()->session()->invalidate();
         request()->session()->regenerateToken();
         return redirect()->route('login');
     })->name('logout');
-});

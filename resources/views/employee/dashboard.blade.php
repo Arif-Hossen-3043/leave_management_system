@@ -40,6 +40,27 @@
                 </ul>
             </nav>
 
+   <div class="mt-8">
+                <a href="{{ route('employee.request') }}"
+                    class="inline-flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-xl shadow-md hover:bg-indigo-700 hover:shadow-lg transition duration-300 font-semibold">
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                    </svg>
+
+                    Request Leave
+                </a>
+            </div>
+
+
+<div>
+     <form action="{{ route('logout') }}" method="POST">
+                @csrf
+                <button type="submit"  class=" mt-20 bg-red-500 text-white px-4 py-2 rounded-lg hover:bg-red-600 transition"> Logout</button>
+
+            </form>
+</div>
         </aside>
 
         <!-- Main Content -->
@@ -82,22 +103,13 @@
                     </div>
 
                 </div>
+
+                
             </div>
 
-            <div class="mt-8">
-                <a href="{{ route('employee.request') }}"
-                    class="inline-flex items-center gap-2 bg-indigo-600 text-white px-6 py-3 rounded-xl shadow-md hover:bg-indigo-700 hover:shadow-lg transition duration-300 font-semibold">
+         
 
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-                    </svg>
-
-                    Request Leave
-                </a>
-            </div>
-
-
+           
 
 
 
